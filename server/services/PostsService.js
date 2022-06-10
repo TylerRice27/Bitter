@@ -6,6 +6,11 @@ class PostsService{
   async getAll(query = {}) {
     return await dbContext.Post.find(query)
   }
+
+  async getById(id) {
+    const activePost = await dbContext.Post.findById(id)
+    return activePost
+  }
   
   async create(body) {
     return await dbContext.Post.create(body)
