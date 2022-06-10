@@ -29,14 +29,25 @@
           <!-- NAVLINKS -->
         </div>
       </div>
+      <button type="button" class="btn btn-danger" onclick="app.postsController.createPost()">Vent!</button>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
     </nav>
   </header>
-  <main id="app">
+  <main>
     <div class="container-fluid">
-      <div class="row my-3">
+      <div class="row d-flex justify-content-center">
+        <div class="col-10" id="posts-content">
+          <!-- <div class="card text-start">
+            <div class="card-header text-center">this.title</div>
+            <div class="card-body">
+              <h4 class="card-title">this.desc</h4>
+              <p class="card-text">this.image</p>
+            </div>
+          </div> -->
+        </div>
 
-        <!-- <form onsubmit="app.postController.createPost()">
+
+        <form onsubmit="app.postController.createPost()">
           <div class="mb-3">
             <label for="postTitle" class="m-2 form-label">Title</label>
             <input type="text" class="form-control" name="postTitle" id="postTitle" aria-describedby="helpId"
@@ -50,7 +61,7 @@
 
             <label for="postImg" class="m-2 form-label">Media Link</label>
             <input type="text" class="form-control" name="postImg" id="postImg" aria-describedby="helpId"
-              placeholder="Img/Gif/Video" required>
+              placeholder="Img/Gif/Video">
 
 
           </div>
@@ -58,7 +69,7 @@
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Save</button>
           </div>
-        </form> -->
+        </form>
 
         <!-- <div class="col-lg-5" id="auth-settings">
           <div class="card p-2 skeleton-loader">
