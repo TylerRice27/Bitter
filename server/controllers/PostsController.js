@@ -11,7 +11,7 @@ export class PostsController extends BaseController{
     .get('',this.getAll)
     .get('/:id', this.getById)
     .post('',this.create)
-    .put('/id', this.update)
+    .put('/:id', this.update)
     .delete('/:id', this.remove)
   }
   

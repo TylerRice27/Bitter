@@ -21,7 +21,14 @@ class PostsService{
     const original = await this.getById(update.id)
 
 
-    original.name
+    original.name = update.name || original.name
+    original.title = update.title || original.title
+    original.description = update.description || original.description
+    original.likes = update.likes || original.likes
+    original.dislikes = update.dislikes || original.updatePost
+
+    await original.save()
+    return original
   }
   
   async remove(id) {
