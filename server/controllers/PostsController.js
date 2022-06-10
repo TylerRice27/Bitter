@@ -46,9 +46,9 @@ export class PostsController extends BaseController{
   async update(req, res, next) {
     try {
       // req.body.id = req.userInfo.id
-      req.body.id = req.param.id
+      req.body.id = req.params.id
       let updatePost = await postsService.update(req.body)
-      return updatePost
+      return res.send(updatePost)
     } catch (error) {
       next(error)
     }
