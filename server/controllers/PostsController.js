@@ -11,9 +11,11 @@ export class PostsController extends BaseController{
     .get('',this.getAll)
     .get('/:id', this.getById)
     .post('',this.create)
+    .put('/id', this.update)
     .delete('/:id', this.remove)
   }
- 
+  
+
   async getAll(req, res, next) {
     try {
       let posts = await postsService.getAll(req.query)
@@ -41,6 +43,16 @@ export class PostsController extends BaseController{
     }
   }
 
+  async update(req, res, next) {
+    try {
+      // req.body.id = req.userInfo.id
+      req.body.id = req.param.id
+      let updatePost = await postsService.update(req.body)
+      return updatePost
+    } catch (error) {
+      next(error)
+    }
+  }
   async remove(req, res, next){
     try{
       let post = await postsService.remove(req.params.id)
