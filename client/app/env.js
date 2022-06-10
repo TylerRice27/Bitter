@@ -5,5 +5,3 @@ export const audience = 'https://TylerDev.com'
 export const clientId = 'OrNg1n6swOJ7RGMg8DMDMQMPRnqipYnu'
 
 
-
-
