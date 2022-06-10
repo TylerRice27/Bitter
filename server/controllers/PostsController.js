@@ -9,14 +9,26 @@ export class PostsController extends BaseController{
     super('api/posts')
     this.router
     .get('',this.getAll)
+    .get('/:id', this.getById)
     .post('',this.create)
     .delete('/:id', this.remove)
   }
+ 
   async getAll(req, res, next) {
     try {
       let posts = await postsService.getAll(req.query)
       return res.send(posts)
     } catch (error) {
+      next(error)
+    }
+  }
+
+  async getById(req, res, next) {
+    try{
+      let activePost = await postsService.getById(req.params.id)
+      return res.send(activePost)
+    }
+    catch(error){
       next(error)
     }
   }
