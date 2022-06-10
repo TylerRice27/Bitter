@@ -1,4 +1,4 @@
-import { postService } from "../services/PostsService";
+import { postsService } from "../services/PostsService";
 import BaseController from "../utils/BaseController";
 
 
@@ -10,22 +10,33 @@ export class PostsController extends BaseController{
     this.router
     .get('',this.getAll)
     .post('',this.create)
+    .delete('/:id', this.remove)
   }
   async getAll(req, res, next) {
     try {
-      let posts = await postService.getAll(req.query)
+      let posts = await postsService.getAll(req.query)
       return res.send(posts)
     } catch (error) {
       next(error)
     }
   }
   async create(req, res, next) {
-   try {
-     let post = await postService.create(req.body)
-     return res.send(postService)
-   } catch (error) {
-     next(error)
-   }
+    try {
+      let post = await postsService.create(req.body)
+      return res.send(post)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async remove(req, res, next){
+    try{
+      let post = await postsService.remove(req.params.id)
+      return res.send(post)
+    }
+    catch(error){
+      next(error)
+    }
   }
 
 }
