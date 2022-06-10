@@ -7,6 +7,9 @@ import { api } from "./AxiosService.js"
 
 
 class PostsService {
+    activePost(id) {
+        throw new Error("Method not implemented.")
+    }
     async getPosts() {
         const res = await api.get('api/posts')
         logger.log('[Posts]', res.data)
@@ -15,8 +18,8 @@ class PostsService {
     }
 
 
-    async createPosts(newPost) {
-        const res = await api.post('api/posts', newPost)
+    async createPosts(postData) {
+        const res = await api.post('api/posts', postData)
         const post = new Post(res.data)
         ProxyState.posts = [...ProxyState.posts, post]
     }

@@ -9,11 +9,11 @@ export class Post {
 
     get DataTemplate() {
         return `
-        <div class="card text-start">
+        <div class="card bg-dark text-start p-4 m-3">
             <div class="card-header text-center">${this.title}</div>
             <div class="card-body">
-              <h4 class="card-title">${this.description}</h4>
-              <p class="card-text">${this.imgUrl}</p>
+              <h4 card-title">${this.description}</h4>
+              <img class="img-fluid object-fit" style="max-height: 125px" src="${this.imgUrl}" alt="">
             </div>
           </div>
         `

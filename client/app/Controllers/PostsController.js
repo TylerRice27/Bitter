@@ -4,12 +4,12 @@ import { logger } from "../Utils/Logger.js";
 
 
 function _drawPosts() {
-    const postElem = document.getElementById("posts-content")
-    const posts = ProxyState.posts
+    let postElem = document.getElementById("posts-content")
+    let posts = ProxyState.posts
     let template = ''
     posts.forEach(p => { template += p.DataTemplate })
     postElem.innerHTML = template
-
+    document.body.style.backgroundImage = `url(https://media.istockphoto.com/vectors/abstract-red-orange-polygonal-vector-background-vector-id990855930?k=20&m=990855930&s=612x612&w=0&h=UBepOh9T2xoWUL58LsmbERU_ZRKIIhUU0-JE0DbBjRU=)`
 }
 
 
@@ -22,6 +22,7 @@ function _drawPosts() {
 export class PostsController {
     constructor() {
         ProxyState.on('posts', _drawPosts)
+        this.getPosts()
     }
 
     async getPosts() {
@@ -30,23 +31,34 @@ export class PostsController {
         } catch (error) {
             logger.error('[getPosts]', error.message)
         }
-
     }
+
+    activePost(id) {
+        try {
+            postsService.activePost(id)
+        } catch (error) {
+            logger.error("[activePost]", error)
+        }
+    }
+
+    // openPostModal() {
+    //     bootstrap.Offcanvas.getOrCreateInstance('#posts-list').hide()
+    //     document.getElementById('modal-title-slot').innerText = 'New Post'
+    //     document.getElementById('post-form').innerHTML = getPostForm()
+    //     bootstrap.Modal.getOrCreateInstance('#form-modal').show()
+    // }
 
     async createPosts() {
         window.event.preventDefault()
+        let form = window.event.target
+        let postData = {
+            title: form.title.value,
+            description: form.description.value
+        }
         try {
-            const form = window.event.target
-            const newPost = {
-                title: form.postTitle.value,
-                description: form.postDescription.value
-
-            }
-            await postsService.createPosts(newPost)
+            await postsService.createPosts(postData)
         } catch (error) {
             logger.log('[createPost]', error.message)
-        } finally {
-            bootstrap.Modal.getOrCreateInstance('#form-modal').hide()
         }
     }
 
