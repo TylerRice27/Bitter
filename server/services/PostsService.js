@@ -3,6 +3,7 @@ import { dbContext } from "../db/DbContext"
 
 class PostsService{
 
+
   async getAll(query = {}) {
     return await dbContext.Post.find(query)
   }
@@ -14,6 +15,13 @@ class PostsService{
   
   async create(body) {
     return await dbContext.Post.create(body)
+  }
+
+  async update(update) {
+    const original = await this.getById(update.id)
+
+
+    original.name
   }
   
   async remove(id) {
