@@ -1,3 +1,4 @@
+import { getCommentsForm } from "../Forms/Forms.js"
 import { commentsService } from "../Services/CommentsService.js"
 import { logger } from "../Utils/Logger.js"
 
@@ -32,6 +33,13 @@ export class CommentsController {
         } catch (error) {
             logger.log('[createComment]', error.message)
         }
+    }
+
+    openCommentOffcanvas(){
+        // @ts-ignore
+        bootstrap.Offcanvas.getOrCreateInstance('#comments-list').show()
+        document.getElementById('modal-body-slot').innerHTML = getCommentsForm()
+
     }
 
     async deleteComment(id) {

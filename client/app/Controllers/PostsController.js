@@ -57,6 +57,8 @@ export class PostsController {
         }
     }
 
+
+
     async deletePost(id) {
         try {
             await postsService.deletePost(id)

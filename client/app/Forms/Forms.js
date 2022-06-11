@@ -30,3 +30,24 @@
     
 //     `
 // }
+
+
+
+
+export function getCommentsForm(){
+  return`
+  
+  <form onsubmit="app.commentsController.createComment()">
+        <div class="mb-3">
+
+          <label for="description" class="m-2 form-label">Description</label>
+          <input type="text" class="form-control" name="description" id="description" aria-describedby="helpId"
+            placeholder="Description" required>
+
+
+          <button type="submit" class="btn btn-danger m-3">Comment!</button>
+        </div>
+      </form>
+
+  `
+}
