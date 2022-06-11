@@ -33,27 +33,16 @@ data-bs-target="#comments-list"><span id="comments"></span></i>
 
   get CommentTemplate() {
     return `
-  //   <div class="offcanvas offcanvas-end" tabindex="-1" id="comments-list" aria-labelledby="offcanvasRightLabel">
-  //   <div class="offcanvas-header">
-  //     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  //   </div>
-  //   <div class="offcanvas-body d-flex flex-column justify-content-between">
-  //     <form onsubmit="app.commentsController.createComment('${this.id}')">
-  //       <div class="mb-3">
-  //         <label for="description" class="m-2 form-label">Description</label>
-  //         <input type="text" class="form-control" name="description" id="description" aria-describedby="helpId"
-  //           placeholder="Description" required>
-  //         <button type="submit" class="btn btn-danger m-3">Vent!</button>
-  //       </div>
-  //     </form>
-  //   </div>
-  // </div>
-    
-    
-    
-    
-    
-    
+    <div class="offcanvas-body d-flex flex-column justify-content-between">
+      <form onsubmit="app.commentsController.createComment('${this.id}')">
+        <div class="mb-3">
+          <label for="description" class="m-2 form-label">Description</label>
+          <input type="text" class="form-control" name="description" id="description" aria-describedby="helpId"
+            placeholder="Description" required>
+          <button type="submit" class="btn btn-danger m-3">Vent!</button>
+        </div>
+      </form>
+    </div>
     `
   }
 }

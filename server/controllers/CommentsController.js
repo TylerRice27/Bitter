@@ -1,3 +1,4 @@
+import { Auth0Provider } from "@bcwdev/auth0provider"
 import { commentsService } from "../services/CommentsService"
 import BaseController from '../utils/BaseController'
 
@@ -7,6 +8,7 @@ export class CommentsController extends BaseController {
     this.router
       .get('', this.getAll)
       .get('/:id', this.getById)
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.create)
       .delete('/:id', this.remove)
   }

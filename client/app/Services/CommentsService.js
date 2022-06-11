@@ -17,7 +17,9 @@ class CommentsService {
 
     async createComment(commentData) {
         const res = await api.post('api/comments', commentData)
+        logger.log(res.data)
         const comment = new Comment(res.data)
+
         ProxyState.comments = [...ProxyState.comments, comment]
     }
 

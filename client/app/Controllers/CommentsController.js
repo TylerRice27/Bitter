@@ -1,3 +1,4 @@
+import { ProxyState } from "../AppState.js"
 import { getCommentsForm } from "../Forms/Forms.js"
 import { commentsService } from "../Services/CommentsService.js"
 import { logger } from "../Utils/Logger.js"
@@ -35,10 +36,11 @@ export class CommentsController {
         }
     }
 
-    openCommentOffcanvas(){
+    openCommentOffcanvas(id){
+        const post = ProxyState.posts.find(p => p.id == id)
         // @ts-ignore
         bootstrap.Offcanvas.getOrCreateInstance('#comments-list').show()
-        document.getElementById('modal-body-slot').innerHTML = getCommentsForm()
+        document.getElementById('model-body-slot').innerHTML = post.CommentTemplate
 
     }
 
