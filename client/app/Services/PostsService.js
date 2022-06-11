@@ -7,9 +7,6 @@ import { api } from "./AxiosService.js"
 
 
 class PostsService {
-    activePost(id) {
-        throw new Error("Method not implemented.")
-    }
     async getPosts() {
         const res = await api.get('api/posts')
         logger.log('[Posts]', res.data)
@@ -24,9 +21,19 @@ class PostsService {
         ProxyState.posts = [...ProxyState.posts, post]
     }
 
+    activePost(id) {
+        const found = ProxyState.posts.find(p => p.id === id)
+        if (!found) {
+            throw new Error('invalid post id')
+        }
+        ProxyState.activePosts = found
+    }
+
+    async deletePost(id) {
+        await api.delete('api/posts/' + id)
+        ProxyState.posts = ProxyState.posts.filter(p => p.id !== id)
+    }
 }
-
-
 
 
 

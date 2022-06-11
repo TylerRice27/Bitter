@@ -41,12 +41,7 @@ export class PostsController {
         }
     }
 
-    // openPostModal() {
-    //     bootstrap.Offcanvas.getOrCreateInstance('#posts-list').hide()
-    //     document.getElementById('modal-title-slot').innerText = 'New Post'
-    //     document.getElementById('post-form').innerHTML = getPostForm()
-    //     bootstrap.Modal.getOrCreateInstance('#form-modal').show()
-    // }
+
 
     async createPosts() {
         window.event.preventDefault()
@@ -59,6 +54,14 @@ export class PostsController {
             await postsService.createPosts(postData)
         } catch (error) {
             logger.log('[createPost]', error.message)
+        }
+    }
+
+    async deletePost(id) {
+        try {
+            await postsService.deletePost(id)
+        } catch (error) {
+            logger.error(error)
         }
     }
 
