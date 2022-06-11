@@ -15,13 +15,7 @@ class AppState extends EventEmitter {
   activePosts = null
 
   /** @type {import('./Models/Comment').Comment[]} */
-  comments = [
-
-    { name: "Dave", description: "This post is great and it is super sick" },
-    { name: "Frank", description: "I dont really like this post" },
-    { name: "Thor", description: "comment over here" }
-
-  ]
+  comments = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {
