@@ -13,12 +13,6 @@ function _drawPosts() {
 }
 
 
-
-// function _drawactivePost() {
-//     const post = ProxyState.activePosts
-
-// }
-
 export class PostsController {
     constructor() {
         ProxyState.on('posts', _drawPosts)
