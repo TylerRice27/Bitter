@@ -21,6 +21,11 @@ class PostsService {
         ProxyState.posts = [...ProxyState.posts, post]
     }
 
+    async createLike(data){
+        const res = await api.put('api/posts/'+ data.postId, data)
+        logger.log(res.data)
+    }
+
     activePost(id) {
         const found = ProxyState.posts.find(p => p.id === id)
         if (!found) {
