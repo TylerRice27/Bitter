@@ -9,7 +9,7 @@ export class Post {
 
   get DataTemplate() {
     return `
-        <div class="card bg-black text-start text-light p-4 m-3">
+        <div class="card custom-card bg-black text-start text-light p-4 m-3">
             <p class="text-end m-0" onclick="app.postsController.deletePost('${this.id}')"><span class="selectable">❌</span></p>
             <div class="card-header text-center text-uppercase p-0"><h3>${this.title}</h3></div>
             <div class="card-body d-flex flex-row">
@@ -35,18 +35,14 @@ data-bs-target="#comments-list"><span id="comments"></span></i>
     return `
   //   <div class="offcanvas offcanvas-end" tabindex="-1" id="comments-list" aria-labelledby="offcanvasRightLabel">
   //   <div class="offcanvas-header">
-
   //     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   //   </div>
   //   <div class="offcanvas-body d-flex flex-column justify-content-between">
-  //     <form onsubmit="app.commentsController.createComment()">
+  //     <form onsubmit="app.commentsController.createComment('${this.id}')">
   //       <div class="mb-3">
-          
   //         <label for="description" class="m-2 form-label">Description</label>
   //         <input type="text" class="form-control" name="description" id="description" aria-describedby="helpId"
   //           placeholder="Description" required>
-
-
   //         <button type="submit" class="btn btn-danger m-3">Vent!</button>
   //       </div>
   //     </form>

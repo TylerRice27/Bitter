@@ -20,12 +20,12 @@ export class CommentsController {
     }
 
 
-    async createComment() {
+    async createComment(postId) {
         window.event.preventDefault()
         let form = window.event.target
         let commentData = {
-            name: form.name.value,
-            description: form.description.value
+            description: form.description.value,
+            postId: postId
         }
         try {
             await commentsService.createComment(commentData)
