@@ -17,8 +17,8 @@ export class Post {
               <p card-title">${this.description}</p>
             </div>
             <div class="d-flex flex-row justify-content-center justify-content-around">
-            <i class="mdi mdi-thumb-up-outline"><span id="likes"></span></i>
-            <i class="mdi mdi-thumb-down-outline"><span id="dislikes"></span></i>
+            <i class="mdi mdi-thumb-up-outline" onclick="app.postsController.createLike('${this.id}', true)"><span id="likes"></span></i>
+            <i class="mdi mdi-thumb-down-outline" onclick="app.postsController.createLike('${this.id}', false)"><span id="dislikes"></span></i>
             <i class="mdi mdi-comment-plus-outline" onclick="app.commentsController.openCommentOffcanvas('${this.id}')" type="button" data-bs-toggle="offcanvas"
 data-bs-target="#comments-list"><span id="comments"></span></i>
             <i class="mdi mdi-newspaper"><span id="likes"></span></i>

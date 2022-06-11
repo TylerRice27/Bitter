@@ -27,6 +27,18 @@ export class PostsController {
         }
     }
 
+    async createLike(postId, bool){
+        try {
+            const data= {
+                postId,
+                isLike: bool
+            }
+            await postsService.createLike(data)
+        } catch (error) {
+            logger.error(error.message)
+        }
+    }
+
     activePost(id) {
         try {
             postsService.activePost(id)

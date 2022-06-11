@@ -33,8 +33,9 @@ class PostsService{
     original.name = update.name || original.name
     original.title = update.title || original.title
     original.description = update.description || original.description
-    original.likes = update.likes || original.likes
-    original.dislikes = update.dislikes || original.updatePost
+    if(update.isLike !== null){
+      update.isLike? original.likes += 1 : original.dislikes += 1
+    }
 
     await original.save()
     return original
