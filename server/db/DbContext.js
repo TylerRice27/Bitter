@@ -9,7 +9,7 @@ class DbContext {
   Account = mongoose.model('Account', AccountSchema);
   Post = mongoose.model('Post', PostSchema)
 
-  Comment = mongoose.model('Comment', CommentSchema)
+  Comments = mongoose.model('Comment', CommentSchema)
 }
 
 export const dbContext = new DbContext()
