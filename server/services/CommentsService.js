@@ -20,7 +20,7 @@ class CommentsService{
   }
   async create(body) {
     const newComment = await dbContext.Comments.create(body)
-    // await newComment.populate('creator','name picture')
+    await newComment.populate('creator','name picture')
     return newComment
   }
 
