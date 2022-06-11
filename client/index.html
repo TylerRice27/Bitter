@@ -47,7 +47,6 @@
     <div class="container-fluid">
       <div class="row d-flex justify-content-center">
         <div class="col-6 p-3" id="posts-content">
-
         </div>
       </div>
     </div>
@@ -96,20 +95,20 @@
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body d-flex flex-column justify-content-between" id="model-body-slot">
-      <!-- <form onsubmit="app.commentsController.createComment()">
-        <div class="mb-3">
-
-          <label for="description" class="m-2 form-label">Description</label>
-          <input type="text" class="form-control" name="description" id="description" aria-describedby="helpId"
-            placeholder="Description" required>
-
-
-          <button type="submit" class="btn btn-danger m-3">Comment!</button>
-        </div>
-      </form> -->
     </div>
   </div>
-
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="myComments" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between" id="model-body-slot1">
+    </div>
+  </div>
+  <!-- <div class="card text-start">
+  <div class="card-body">
+    <p class="card-text">Body</p>
+  </div>
+</div> -->
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.15/auth0-spa-js.production.js"></script>

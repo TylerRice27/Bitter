@@ -15,7 +15,6 @@ export class CommentsController extends BaseController {
 
   async getAll(req, res, next) {
     try {
-
       const comments = await commentsService.getAll(req.query)
       return res.send(comments)
     } catch (error) {

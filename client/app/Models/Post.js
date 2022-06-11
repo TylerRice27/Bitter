@@ -21,7 +21,8 @@ export class Post {
             <i class="mdi mdi-thumb-down-outline"><span id="dislikes"></span></i>
             <i class="mdi mdi-comment-plus-outline" onclick="app.commentsController.openCommentOffcanvas('${this.id}')" type="button" data-bs-toggle="offcanvas"
 data-bs-target="#comments-list"><span id="comments"></span></i>
-            <i class="mdi mdi-newspaper"><span id="likes"></span></i>
+            <i class="mdi mdi-newspaper" onclick="app.commentsController.openMyComments('${this.id}')" type="button" data-bs-toggle="offcanvas"
+data-bs-target="#myComments"><span id="comments"></i>
 
             </div>
           </div>
@@ -36,14 +37,25 @@ data-bs-target="#comments-list"><span id="comments"></span></i>
     <div class="offcanvas-body d-flex flex-column justify-content-between">
       <form onsubmit="app.commentsController.createComment('${this.id}')">
         <div class="mb-3">
-          <label for="description" class="m-2 form-label">Description</label>
+          <label for="description" class="m-2 form-label">Constructively Criticize!</label>
           <input type="text" class="form-control" name="description" id="description" aria-describedby="helpId"
-            placeholder="Description" required>
-          <button type="submit" class="btn btn-danger m-3">Vent!</button>
+            placeholder="Comment" required>
+          <button type="submit" class="btn btn-danger m-3">let er rip!</button>
         </div>
       </form>
     </div>
     `
+  }
+
+  get currentCommentTemplate() {
+    return `
+        <div class="card text-start">
+            <div class="card-body">
+                <p class="card-text">${this.description}</p>
+                <p onclick="app.commentsController.deleteComment('${this.id}')">❌</p>
+            </div>
+        </div>
+        `
   }
 }
 
