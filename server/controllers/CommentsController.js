@@ -8,7 +8,7 @@ export class CommentsController extends BaseController {
       .get('', this.getAll)
       .get('/:id', this.getById)
       .post('', this.create)
-      // .delete('/:id', this.remove)
+      .delete('/:id', this.remove)
   }
 
   async getAll(req, res, next) {
@@ -42,13 +42,13 @@ export class CommentsController extends BaseController {
     }
     }
 
-    // async remove(req, res, next) {
-    //   try {
-    //     const commentRemoved = await commentsService.remove(req.params.id)
-    //     return res.send(commentRemoved)
-    //   } catch (error) {
-    //     next (error)
-    //   }
-    // }
+    async remove(req, res, next) {
+      try {
+        const commentRemoved = await commentsService.remove(req.params.id)
+        return res.send(commentRemoved)
+      } catch (error) {
+        next (error)
+      }
+    }
   }
   
