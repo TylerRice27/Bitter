@@ -18,7 +18,9 @@ class PostsService{
   }
   
   async create(body) {
-    return await dbContext.Post.create(body)
+    const newPost =  await dbContext.Post.create(body)
+    await newPost.populate('creator', 'name picture')
+    return newPost
   }
 
   async update(update) {
